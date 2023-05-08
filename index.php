@@ -7,11 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document /title>
 </head>
+
+    <?php
+    require_once 'configBD.php';
+    ?>
+
 <body>
 
 
 </body>
 </html>
 
-
-<?php
