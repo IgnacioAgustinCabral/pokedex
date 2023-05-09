@@ -23,5 +23,4 @@ include_once ('header.php');
 </html>
 <?php
 
-
-
+?>
