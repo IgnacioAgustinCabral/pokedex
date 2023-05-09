@@ -9,22 +9,54 @@
     <title>Document</title>
 </head>
 <body>
+<?php
+include_once ('header.php');
+?>
 
-<h1 class="text-center">Pokémon</h1>
+<?php
+if (isset($_POST['id']) && isset($_POST['nombre']) && isset($_POST['tipo']) && isset($_FILES['imagen'])) {
+    $id = $_POST['id'];
+    $nombre = $_POST['nombre'];
+    $tipo = $_POST['tipo'];
+    $imagen = $_FILES['imagen'];
+}
+switch ($tipo) {
+    case 'agua':
+        $ruta_imagen = 'imgs/tipo_agua.png';
+        break;
+    case 'fuego':
+        $ruta_imagen = 'imgs/tipo_fuego.png';
+        break;
+    case 'eléctrico':
+        $ruta_imagen = 'imgs/tipo_electrico.png';
+        break;
+    case 'tierra':
+        $ruta_imagen = 'imgs/tipo_tierra.png';
+        break;
+    case 'psíquico':
+        $ruta_imagen = 'imgs/tipo_psiquico.png';
+        break;
+    default:
+        $ruta_imagen = 'imgs/tipo_desconocido.png';
+        break;
 
-<div class="container">
+
+}
+
+?>
+<div class="container mt-5 mb-4">
     <div class="row">
         <div class="col-4">
-            <img src="imgs/Charmander.png" alt="pkm" class="img-thumbnail">
+            <?php echo '<img src="' . $ruta_imagen . '" alt="ImagenPkm" class="img-fluid">';?>
         </div>
 
         <div class="col-8">
             <div class="row">
                 <div class="col-3">
-                    <img src="imgs/tipo_fuego.png" alt="fuego" class="align-content-start">
+                    <?php echo '<img src="' . $ruta_imagen . '" alt="' . $tipo . '" class="align-content-start">';?>
                 </div>
-                <div class="col-1"><p class="text-center">nro</p></div>
-                <div class="col-8"><p class="text-start">Nombre Pokemon</p></div>
+                <div class="col-1"><p class="text-center">ID: <?php echo $id; ?></p></div>
+                <div class="col-8"><p class="text-start"><?php echo $nombre; ?></p></div>
             </div>
 
             <div class="row"></div>
