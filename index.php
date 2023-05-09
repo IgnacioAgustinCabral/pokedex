@@ -12,8 +12,3 @@
 
 </body>
 </html>
-
-
-<?php
-
-echo "test-pusheo";
