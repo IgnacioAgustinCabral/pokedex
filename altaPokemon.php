@@ -9,6 +9,9 @@
     <title>Pokedex</title>
 </head>
 <body>
+<?php
+include_once ('header.php');
+?>
     <h1 class="text-center mt-5 mb-4">Agregue Pokémon</h1>
     <div class="container">
         <form class="row g-3 m-3 p-3" action="www.google.com" method="post" enctype="multipart/form-data">
