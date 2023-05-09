@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Document</title>
 </head>
+
+    <?php
+    require_once 'configBD.php';
+    ?>
+
 <body>
 <?php
 include_once ('header.php');
@@ -17,4 +22,6 @@ include_once ('header.php');
 <script src="js/bootstrap.min.js"></script>
 </html>
 <?php
+
+
 
