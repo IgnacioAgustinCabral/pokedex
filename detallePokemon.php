@@ -15,13 +15,13 @@
 <div class="container">
     <div class="row">
         <div class="col-4">
-            <img src="img/Charmander.png" alt="pkm" class="img-thumbnail">
+            <img src="imgs/Charmander.png" alt="pkm" class="img-thumbnail">
         </div>
 
         <div class="col-8">
             <div class="row">
                 <div class="col-3">
-                    <img src="img/tipo_fuego.png" alt="fuego" class="align-content-start">
+                    <img src="imgs/tipo_fuego.png" alt="fuego" class="align-content-start">
                 </div>
                 <div class="col-1"><p class="text-center">nro</p></div>
                 <div class="col-8"><p class="text-start">Nombre Pokemon</p></div>
