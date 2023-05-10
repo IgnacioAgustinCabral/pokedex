@@ -81,19 +81,17 @@ if(isset($_POST['submit'])){
         $nombre = $_POST['nombre'];
         $tipo = $_POST['tipo'];
         $numero = $_POST['numero'];
+        $descripcion = $_POST['descripcion'];
         $target_dir = "imgs/";
         $rutaImagen = $target_dir . basename($_FILES['imagen']['name']);
-
         $imagen = $_FILES['imagen'];
-        verificarImagen($imagen);
 
-
-
-
-        $descripcion = $_POST['descripcion'];
-
-        darDeAlta($db, $numero, $nombre, $rutaImagen, $tipo, $descripcion);
-
+        $result = darDeAlta($db, $numero, $nombre, $rutaImagen, $tipo, $descripcion);
+        if($result=='true'){
+            verificarImagen($imagen, $nombre);
+        }else{
+            echo "Ocurrió un error inesperado, intente nuevamente.";
+        }
     } else{
         echo "Hay algún error en los campos ingresados, reintente nuevamente. ";
     }
