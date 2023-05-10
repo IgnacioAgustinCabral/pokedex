@@ -2,6 +2,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Listado Completo</title>
 </head>
 
@@ -13,8 +14,14 @@ include_once 'funciones.php';
 include_once 'header.php';
 
 $filtro = $_GET['filtro'];
+$sql ="SELECT P.id_pokemon,P.numero_pokemon,P.image,P.nombre, TP.descripcion AS tipo, P.descripcion
+            FROM pokemon P
+            JOIN tipo_pokemon TP ON 
+            P.tipo = TP.id
+            WHERE P.nombre LIKE '%$filtro%' OR P.numero_pokemon LIKE '%$filtro%' OR TP.descripcion LIKE '%$filtro%';";
+$resultado = $db->query($sql);
 
-$resultado  =   buscar($filtro);
+//$resultado  =   buscar($filtro);
 
 if ($resultado && mysqli_num_rows($resultado) > 0) {
     // Creo una tabla HTML para mostrar los registros

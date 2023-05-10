@@ -67,7 +67,8 @@ function verificarImagen($imagen, $nombre){
         exit();
     } else {
         if (move_uploaded_file($_FILES['imagen']['tmp_name'], $new_file_name)) {
-            echo "El archivo " . htmlspecialchars(basename($_FILES["imagen"]["name"])) . " ha sido subido con el nombre " . basename($new_file_name) . ".";
+            echo "El Pokémon se ha subido correctamente";
+//            echo "El archivo " . htmlspecialchars(basename($_FILES["imagen"]["name"])) . " ha sido subido con el nombre " . basename($new_file_name) . ".";
             //header("Location: index.php");
             //exit;
         } else {
@@ -80,12 +81,6 @@ function verificarImagen($imagen, $nombre){
 function buscar($filtro){
     include_once ('configBD.php');
 
-    $sql ="SELECT P.id_pokemon,P.numero_pokemon,P.image,P.nombre, TP.descripcion AS tipo, P.descripcion
-            FROM pokemon P
-            JOIN tipo_pokemon TP ON 
-            P.tipo = TP.id
-            WHERE P.nombre LIKE '%$filtro%' OR P.numero_pokemon LIKE '%$filtro%' OR TP.descripcion LIKE '%$filtro%';";
-    return $resultado = $db->query($sql);
 }
 
 ?>
