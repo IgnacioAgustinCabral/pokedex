@@ -14,46 +14,49 @@ include_once ('header.php');
 ?>
 
 <?php
-if (isset($_POST['id']) && isset($_POST['nombre']) && isset($_POST['tipo']) && isset($_FILES['imagen'])) {
-    $id = $_POST['id'];
-    $nombre = $_POST['nombre'];
-    $tipo = $_POST['tipo'];
-    $imagen = $_FILES['imagen'];
+if (isset($_GET['id']) && isset($_GET['nombre']) && isset($_GET['tipo']) && isset($_GET['imagen'])) {
+    $id = $_GET['id'];
+    $nombre = $_GET['nombre'];
+    $tipo = $_GET['tipo'];
+    $imagen = $_GET['imagen'];
 }
 switch ($tipo) {
     case 'agua':
-        $ruta_imagen = 'imgs/tipo_agua.png';
+        $ruta_tipo = 'imgs/tipo_agua.png';
         break;
     case 'fuego':
-        $ruta_imagen = 'imgs/tipo_fuego.png';
+        $ruta_tipo = 'imgs/tipo_fuego.png';
         break;
     case 'eléctrico':
-        $ruta_imagen = 'imgs/tipo_electrico.png';
+        $ruta_tipo = 'imgs/tipo_electrico.png';
         break;
     case 'tierra':
-        $ruta_imagen = 'imgs/tipo_tierra.png';
+        $ruta_tipo = 'imgs/tipo_tierra.png';
         break;
     case 'psíquico':
-        $ruta_imagen = 'imgs/tipo_psiquico.png';
+        $ruta_tipo = 'imgs/tipo_psiquico.png';
         break;
     default:
-        $ruta_imagen = 'imgs/tipo_desconocido.png';
+        $ruta_tipo = 'imgs/tipo_desconocido.png';
         break;
 
 
 }
 
+
+var_dump($_GET);
 ?>
+
 <div class="container mt-5 mb-4">
     <div class="row">
         <div class="col-4">
-            <?php echo '<img src="' . $ruta_imagen . '" alt="ImagenPkm" class="img-fluid">';?>
+            <img src="<?php echo $imagen ?>" alt="Imagen de <?php echo $nombre ?>">
         </div>
 
         <div class="col-8">
             <div class="row">
                 <div class="col-3">
-                    <?php echo '<img src="' . $ruta_imagen . '" alt="' . $tipo . '" class="align-content-start">';?>
+                    <?php echo '<img src="' . $ruta_tipo . '" alt="' . $tipo . '" class="align-content-start">';?>
                 </div>
                 <div class="col-1"><p class="text-center">ID: <?php echo $id; ?></p></div>
                 <div class="col-8"><p class="text-start"><?php echo $nombre; ?></p></div>
