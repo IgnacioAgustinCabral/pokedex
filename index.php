@@ -30,7 +30,23 @@ include_once ('listadoCompleto.php');
 
 </body>
 <script src="js/bootstrap.min.js"></script>
+
+
+<a href="detallepokemon.php?nombre=Charmander&id=01&tipo=fuego&imagen=imgs/Charmander.png"> Ver </a>
+
+<br>
+<br>
+
 </html>
+
+
 <?php
+$id = "01";
+$nombre = "Charmander";
+$tipo = "fuego";
+$imagen = "imgs/Charmander.png";
+
+echo '<a href="detallepokemon.php?id=' . $id . '&nombre=' . $nombre . '&tipo=' . $tipo . '&imagen=' . $imagen . '">' . $nombre . '</a>';
+
 
 ?>
