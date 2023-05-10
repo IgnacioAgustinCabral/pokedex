@@ -19,7 +19,12 @@ include_once ('header.php');
 ?>
 
 <section class="container">
-    <!-- Buscador -->
+    <form class="d-flex" action="buscar.php" method="GET" >
+        <div class="col-4">
+            <input class="form-control"name="filtro" type="search" placeholder="Buscar" aria-label="Buscar">
+        </div>
+        <button class="btn btn-outline-success" type="submit" >Buscar</button>
+    </form>
 </section>
 <section class="container">
     <h2>Listado de Pokemones</h2>
@@ -32,7 +37,6 @@ include_once ('listadoCompleto.php');
 <script src="js/bootstrap.min.js"></script>
 
 
-<a href="detallepokemon.php?nombre=Charmander&id=01&tipo=fuego&imagen=imgs/Charmander.png"> Ver </a>
 
 <br>
 <br>

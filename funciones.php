@@ -38,6 +38,15 @@ function verificarImagen($imagen){
     $new_file_name = $imagen;
 
 }
+function buscar($filtro){
+
+    $sql ="SELECT P.id_pokemon,P.numero_pokemon,P.image,P.nombre, TP.descripcion AS tipo, P.descripcion
+            FROM pokemon P
+            JOIN tipo_pokemon TP ON 
+            P.tipo = TP.id
+            WHERE P.nombre LIKE '%$filtro%' OR P.numero_pokemon LIKE '%$filtro%' OR TP.descripcion LIKE '%$filtro%';";
+    return $resultado = $db->query($sql);
+}
 
 
 
