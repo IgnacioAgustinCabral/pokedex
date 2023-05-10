@@ -14,7 +14,7 @@ include_once ('header.php');
 ?>
     <h1 class="text-center mt-5 mb-4">Agregue Pokémon</h1>
     <div class="container">
-        <form class="row g-3 m-3 p-3" action="" method="post" enctype="multipart/form-data">
+        <form class="row g-3 m-3 p-3" action="altaPokemon.php" method="post" enctype="multipart/form-data">
 
             <div class="col-4">
                 <label class="form-label" for="nombre">Ingrese nombre del Pokémon:</label>
@@ -71,3 +71,29 @@ include_once ('header.php');
 <script src="js/bootstrap.min.js"></script>
 </html>
 <?php
+include_once ('funciones.php');
+include_once ('configBD.php');
+
+
+
+if(isset($_POST['submit'])){
+
+    if(!empty($_POST['nombre']) && !empty($_POST['tipo']) && !empty($_POST['numero']) && !empty($_FILES['imagen']) && !empty($_POST['descripcion'])){
+        $nombre = $_POST['nombre'];
+        $tipo = $_POST['tipo'];
+        $numero = $_POST['numero'];
+        $descripcion = $_POST['descripcion'];
+        $target_dir = "imgs/";
+        $rutaImagen = $target_dir . basename($_FILES['imagen']['name']);
+        $imagen = $_FILES['imagen'];
+
+        $result = darDeAlta($db, $numero, $nombre, $rutaImagen, $tipo, $descripcion);
+        if($result=='true'){
+            verificarImagen($imagen, $nombre);
+        }else{
+            echo "Ocurrió un error inesperado, intente nuevamente.";
+        }
+    } else{
+        echo "Hay algún error en los campos ingresados, reintente nuevamente. ";
+    }
+}
