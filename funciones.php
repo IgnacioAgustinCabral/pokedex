@@ -20,17 +20,6 @@ function consultarTipo($conexion,$tipo){
 function darDeAlta($db, $numero, $nombre,$rutaImagen,$tipo,$descripcion){
     include_once ('configBD.php');
 
-    $sql = "INSERT INTO pokemon(numero_pokemon, nombre, image, tipo, descripcion) VALUES ('$numero', '$nombre','$rutaImagen','$tipo','$descripcion')";
-    $resultado_ejecucion = $db->query($sql);
-    if($resultado_ejecucion){
-        return "alta exitosa";
-        //return $resultado_ejecucion;
-    } else{
-        echo "error";
-        header("Location: index.php");
-        exit();
-    }
-}
     $sqlNumero = "SELECT numero_pokemon FROM pokemon WHERE numero_pokemon = '$numero'";
     $result = $db->query($sqlNumero);
     if(mysqli_num_rows($result) > 0){
@@ -87,7 +76,9 @@ function verificarImagen($imagen, $nombre){
     }
 
 }
+
 function buscar($filtro){
+    include_once ('configBD.php');
 
     $sql ="SELECT P.id_pokemon,P.numero_pokemon,P.image,P.nombre, TP.descripcion AS tipo, P.descripcion
             FROM pokemon P
@@ -96,7 +87,5 @@ function buscar($filtro){
             WHERE P.nombre LIKE '%$filtro%' OR P.numero_pokemon LIKE '%$filtro%' OR TP.descripcion LIKE '%$filtro%';";
     return $resultado = $db->query($sql);
 }
-
-
 
 ?>

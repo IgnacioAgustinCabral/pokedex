@@ -11,6 +11,7 @@
 
 
 <body>
+
 <?php
 include_once ('header.php');
 //    require_once 'configBD.php';
@@ -20,7 +21,7 @@ if(isset($_GET['error'])){
 if(isset($_SESSION["admin"])){
     echo '<a style="margin-top: 2em;" href="altaPokemon.php" class="link-success mt-5 mb-5">Agregar Pokémon</a>';
 }
-require_once ('listadoCompleto.php');
+?>
 
 <section class="container">
     <form class="d-flex" action="buscar.php" method="GET" >
@@ -30,11 +31,14 @@ require_once ('listadoCompleto.php');
         <button class="btn btn-outline-success" type="submit" >Buscar</button>
     </form>
 </section>
+
 <section class="container">
     <h2>Listado de Pokemones</h2>
-<?php
-include_once ('listadoCompleto.php');
-    ?>
+        <?php
+        include_once ('listadoCompleto.php');
+
+        ?>
+</section>
 </body>
 <script src="js/bootstrap.min.js"></script>
 </html>
