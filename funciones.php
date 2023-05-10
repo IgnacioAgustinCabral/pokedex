@@ -1,7 +1,7 @@
 <?php
 
 function listarTodo($conexion){
-    $sql = "SELECT P.id_pokemon,P.image,P.nombre, TP.descripcion AS tipo, P.descripcion
+    $sql = "SELECT P.id_pokemon,P.numero_pokemon,P.image,P.nombre, TP.descripcion AS tipo
             FROM pokemon P
             JOIN tipo_pokemon TP ON 
             P.tipo = TP.id;";

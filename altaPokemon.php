@@ -68,6 +68,7 @@ include_once ('header.php');
         -moz-appearance: textfield;
     }
 </style>
+<script src="js/bootstrap.min.js"></script>
 </html>
 <?php
 include_once ('funciones.php');
