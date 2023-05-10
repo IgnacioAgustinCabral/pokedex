@@ -18,6 +18,16 @@
 include_once ('header.php');
 ?>
 
+<section class="container">
+    <!-- Buscador -->
+</section>
+<section class="container">
+    <h2>Listado de Pokemones</h2>
+<?php
+include_once ('listadoCompleto.php');
+?>
+</section>
+
 </body>
 <script src="js/bootstrap.min.js"></script>
 </html>

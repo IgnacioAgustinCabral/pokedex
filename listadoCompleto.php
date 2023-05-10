@@ -19,7 +19,7 @@
         // Comprobamos si la función devolvió algún resultado
         if ($resultado && mysqli_num_rows($resultado) > 0) {
             // Creamos una tabla HTML para mostrar los registros
-            echo '<table>';
+            echo '<table class="table table-bordered">';
             echo '<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Imagen</th><th>Descripción</th></tr>';
 
             // Recorremos los registros y los mostramos en la tabla

@@ -17,19 +17,29 @@ function consultarTipo($conexion,$tipo){
     return $resultado_ejecucion;
 }
 
-function darDeAlta($conexion, $id_pokemon, $numero, $nombre,$img,$tipo,$descripcion){
-    $id     = $_POST['id_pokemon'];
-    $numero = $_POST['numero'];
-    $nombre = $_POST['nombre'];
-    $img    = $_POST['image'];
-    $tipo   =$_POST['tipo'];
-    $descripcion=$_POST['descripcion'];
-    $tipoID=consultarTipo($conexion,$tipo);
+function darDeAlta($db, $numero, $nombre,$rutaImagen,$tipo,$descripcion){
+    include_once ('configBD.php');
 
-    $sql = "INSERT INTO pokemon VALUES ($id, $numero, $nombre,$img,$tipoID,$descripcion)";
-    $resultado_ejecucion = mysqli_query($conexion,$sql);
-    return $resultado_ejecucion;
+    $sql = "INSERT INTO pokemon(numero_pokemon, nombre, image, tipo, descripcion) VALUES ('$numero', '$nombre','$rutaImagen','$tipo','$descripcion')";
+    $resultado_ejecucion = $db->query($sql);
+
+    if($resultado_ejecucion){
+        return "alta exitosa";
+        //return $resultado_ejecucion;
+    } else{
+        echo "error";
+        header("Location: index.php");
+        exit();
+    }
 }
+
+function verificarImagen($imagen){
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($imagen, PATHINFO_EXTENSION));
+    $new_file_name = $imagen;
+
+}
+
 
 
 ?>
