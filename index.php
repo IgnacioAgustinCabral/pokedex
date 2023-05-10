@@ -9,13 +9,13 @@
     <title>Document</title>
 </head>
 
-    <?php
-    require_once 'configBD.php';
-    ?>
-
 <body>
 <?php
 include_once ('header.php');
+//    require_once 'configBD.php';
+if(isset($_GET['error'])){
+    echo '<h1 style="color:red">Datos Incorrectos</h1>';
+}
 ?>
 
 </body>
