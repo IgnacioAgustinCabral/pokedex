@@ -6,7 +6,7 @@
     $dbname = 'pokedex';
 
     // Realizar la conexión a la base de datos
-   return $db = mysqli_connect($host, $user, $pass, $dbname);
+    $db = mysqli_connect($host, $user, $pass, $dbname);
 
     // Verificar si la conexión fue exitosa
     if (!$db) {
