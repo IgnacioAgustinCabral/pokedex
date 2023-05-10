@@ -23,5 +23,4 @@ if(isset($_GET['error'])){
 </html>
 <?php
 
-
-
+?>
