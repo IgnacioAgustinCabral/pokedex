@@ -9,22 +9,57 @@
     <title>Document</title>
 </head>
 <body>
+<?php
+include_once ('header.php');
+?>
 
-<h1 class="text-center">Pokémon</h1>
+<?php
+if (isset($_GET['id']) && isset($_GET['nombre']) && isset($_GET['tipo']) && isset($_GET['imagen'])) {
+    $id = $_GET['id'];
+    $nombre = $_GET['nombre'];
+    $tipo = $_GET['tipo'];
+    $imagen = $_GET['imagen'];
+}
+switch ($tipo) {
+    case 'agua':
+        $ruta_tipo = 'imgs/tipo_agua.png';
+        break;
+    case 'fuego':
+        $ruta_tipo = 'imgs/tipo_fuego.png';
+        break;
+    case 'eléctrico':
+        $ruta_tipo = 'imgs/tipo_electrico.png';
+        break;
+    case 'tierra':
+        $ruta_tipo = 'imgs/tipo_tierra.png';
+        break;
+    case 'psíquico':
+        $ruta_tipo = 'imgs/tipo_psiquico.png';
+        break;
+    default:
+        $ruta_tipo = 'imgs/tipo_desconocido.png';
+        break;
 
-<div class="container">
+
+}
+
+
+var_dump($_GET);
+?>
+
+<div class="container mt-5 mb-4">
     <div class="row">
         <div class="col-4">
-            <img src="imgs/Charmander.png" alt="pkm" class="img-thumbnail">
+            <img src="<?php echo $imagen ?>" alt="Imagen de <?php echo $nombre ?>">
         </div>
 
         <div class="col-8">
             <div class="row">
                 <div class="col-3">
-                    <img src="imgs/tipo_fuego.png" alt="fuego" class="align-content-start">
+                    <?php echo '<img src="' . $ruta_tipo . '" alt="' . $tipo . '" class="align-content-start">';?>
                 </div>
-                <div class="col-1"><p class="text-center">nro</p></div>
-                <div class="col-8"><p class="text-start">Nombre Pokemon</p></div>
+                <div class="col-1"><p class="text-center">ID: <?php echo $id; ?></p></div>
+                <div class="col-8"><p class="text-start"><?php echo $nombre; ?></p></div>
             </div>
 
             <div class="row"></div>
