@@ -1,7 +1,7 @@
 <?php
 
 function listarTodo($conexion){
-    $sql = "SELECT P.id_pokemon,P.image,P.nombre, TP.descripcion AS tipo, P.descripcion
+    $sql = "SELECT P.id_pokemon,P.numero_pokemon,P.image,P.nombre, TP.descripcion AS tipo, P.descripcion
             FROM pokemon P
             JOIN tipo_pokemon TP ON 
             P.tipo = TP.id;";
@@ -22,7 +22,6 @@ function darDeAlta($db, $numero, $nombre,$rutaImagen,$tipo,$descripcion){
 
     $sql = "INSERT INTO pokemon(numero_pokemon, nombre, image, tipo, descripcion) VALUES ('$numero', '$nombre','$rutaImagen','$tipo','$descripcion')";
     $resultado_ejecucion = $db->query($sql);
-
     if($resultado_ejecucion){
         return "alta exitosa";
         //return $resultado_ejecucion;

@@ -20,16 +20,17 @@
         if ($resultado && mysqli_num_rows($resultado) > 0) {
             // Creamos una tabla HTML para mostrar los registros
             echo '<table class="table table-bordered">';
-            echo '<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Imagen</th><th>Descripción</th></tr>';
+            echo '<tr><th>Numero</th><th>Nombre</th><th>Tipo</th><th>Imagen</th><th>Descripción</th><th>Ver Detalle</th></tr>';
 
             // Recorremos los registros y los mostramos en la tabla
             while ($fila = mysqli_fetch_assoc($resultado)) {
                 echo '<tr>';
-                echo '<td>' . $fila['id_pokemon'] . '</td>';
+                echo '<td>' . $fila['numero_pokemon'] . '</td>';
                 echo '<td>' . $fila['nombre'] . '</td>';
                 echo '<td>' . $fila['tipo'] . '</td>';
                 echo '<td><img src="' . $fila['image'] . '" width="80"></td>';
                 echo '<td>'.$fila['descripcion'].'</td>';
+                echo '<td>'.'<a href="detallePokemon.php">'."Ver Detalles".'</a>'.'</td>';
                 echo '</tr>';
             }
             echo '</table>';
