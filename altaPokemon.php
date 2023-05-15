@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Pokedex</title>
+    <title>Pokédex</title>
 </head>
 <body>
 <?php
@@ -48,7 +48,7 @@ if(!isset($_SESSION["admin"])){
             </div>
 
             <div class="col-12">
-                <label class="form-label" for="descripcion">Escriba una descripcion:</label>
+                <label class="form-label" for="descripcion">Escriba una descripción:</label>
                 <textarea class="form-control" name="descripcion" required id="descripcion" placeholder="Descripción..."></textarea>
             </div>
 

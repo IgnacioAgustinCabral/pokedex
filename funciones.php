@@ -98,4 +98,19 @@ function borrarPokemonPorID($conexion,$id){
     $conexion->query($sql);
     return $conexion->affected_rows;
 }
+
+function modificar($conexion,$id,$numero,$nombre, $rutaImagen, $tipo, $descripcion){
+    $sql = "UPDATE pokemon P SET P.numero_pokemon ='$numero',P.image = '$rutaImagen',P.nombre = '$nombre',P.tipo = '$tipo',P.descripcion = '$descripcion' WHERE P.id_pokemon = '$id'";
+    $conexion->query($sql);
+    return $conexion->affected_rows;
+}
+function trearDatos($conexion,$id){
+    $sql = "SELECT P.numero_pokemon AS numero,P.nombre AS nombre, TP.descripcion AS tipo, P.tipo as tipo_nro, P.descripcion AS descripcion
+            FROM pokemon P
+            JOIN tipo_pokemon TP
+            ON P.tipo = TP.id
+            WHERE P.id_pokemon=$id";
+    $result = $conexion->query($sql);
+    return $result->fetch_assoc();
+}
 ?>

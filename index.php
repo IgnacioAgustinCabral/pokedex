@@ -27,7 +27,7 @@ if(isset($_SESSION["admin"])){
 ?>
 
 <section class="container">
-    <form class="d-flex justify-content-center" action="buscar.php" method="GET" >
+    <form class="d-flex justify-content-center mt-4" action="buscar.php" method="GET" >
         <div class="col-4">
             <input class="form-control"name="filtro" type="search" placeholder="Buscar" aria-label="Buscar">
         </div>
