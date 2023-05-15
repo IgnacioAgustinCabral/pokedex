@@ -14,40 +14,6 @@ include_once ('header.php');
 ?>
 
 <?php
-//if (isset($_GET['id']) && isset($_GET['nombre']) && isset($_GET['tipo']) && isset($_GET['imagen'])) {
-//    $id = $_GET['id'];
-//    $nombre = $_GET['nombre'];
-//    $tipo = $_GET['tipo'];
-//    $imagen = $_GET['imagen'];
-//}
-
-
-//switch ($tipo) {
-//    case 'agua':
-//        $ruta_tipo = 'imgs/tipo_agua.png';
-//        break;
-//    case 'fuego':
-//        $ruta_tipo = 'imgs/tipo_fuego.png';
-//        break;
-//    case 'eléctrico':
-//        $ruta_tipo = 'imgs/tipo_electrico.png';
-//        break;
-//    case 'tierra':
-//        $ruta_tipo = 'imgs/tipo_tierra.png';
-//        break;
-//    case 'psíquico':
-//        $ruta_tipo = 'imgs/tipo_psiquico.png';
-//        break;
-//    default:
-//        $ruta_tipo = 'imgs/tipo_desconocido.png';
-//        break;
-//
-//
-//}
-
-
-//var_dump($_GET);
-
 require_once 'configBD.php';
 require_once 'funciones.php';
 $id = $_GET["id"] ?? '';

@@ -92,4 +92,10 @@ function detallePorId($conexion,$id){
 
     return mysqli_query($conexion ,$sql);
 }
+
+function borrarPokemonPorID($conexion,$id){
+    $sql = "DELETE FROM pokemon WHERE pokemon.id_pokemon = $id";
+    $conexion->query($sql);
+    return $conexion->affected_rows;
+}
 ?>
