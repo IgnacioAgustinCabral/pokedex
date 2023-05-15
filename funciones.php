@@ -1,7 +1,7 @@
 <?php
 
 function listarTodo($conexion){
-    $sql = "SELECT P.id_pokemon,P.numero_pokemon,P.image,P.nombre, TP.descripcion AS tipo
+    $sql = "SELECT P.id_pokemon,P.numero_pokemon,P.image,P.nombre, TP.descripcion AS tipo,TP.image AS ruta_tipo
             FROM pokemon P
             JOIN tipo_pokemon TP ON 
             P.tipo = TP.id;";
@@ -83,4 +83,13 @@ function buscar($filtro){
 
 }
 
+function detallePorId($conexion,$id){
+
+    $sql = "SELECT P.nombre AS nombre,P.image AS ruta,TP.descripcion AS tipo,TP.image AS ruta_tipo,P.descripcion AS descripcion,P.numero_pokemon AS nro
+        FROM pokemon P
+        JOIN tipo_pokemon TP ON P.tipo = TP.id
+        WHERE P.id_pokemon = $id";
+
+    return mysqli_query($conexion ,$sql);
+}
 ?>
