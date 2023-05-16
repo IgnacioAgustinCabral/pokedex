@@ -22,10 +22,10 @@
 
             if(isset($_SESSION["admin"])){
                 echo '<table class="table table-bordered mt-5">';
-                echo '<tr><th>Numero Pokémon</th><th>Nombre</th><th>Tipo</th><th>Imagen</th><th>Ver</th><th>Modificar</th><th>Borrar</th></tr>';
+                echo '<tr><th>Numero Pokémon</th><th>Nombre</th><th>Tipo</th><th>Imagen</th><th>Ver Detalle</th><th>Modificar</th><th>Borrar</th></tr>';
             } else {
                 echo '<table class="table table-bordered mt-5">';
-                echo '<tr><th>Numero Pokémon</th><th>Nombre</th><th>Tipo</th><th>Imagen</th><th>Ver</th></tr>';
+                echo '<tr><th>Numero Pokémon</th><th>Nombre</th><th>Tipo</th><th>Imagen</th><th>Ver Detalle</th></tr>';
             }
 
             // Recorremos los registros y los mostramos en la tabla
@@ -34,12 +34,11 @@
                     echo '<tr>';
                     echo '<td>' . $fila['numero_pokemon'] . '</td>';
                     echo '<td>' . $fila['nombre'] . '</td>';
-                    echo '<td>' . $fila['tipo'] . '</td>';
-                    echo '<td><img src="' . $fila['image'] .'" width="80"></td>';
-//                echo '<td>'.$fila['descripcion'].'</td>';
-                    echo '<td><button type="button" class="btn btn-primary"><a style="text-decoration: none;color: inherit;" href=detallePokemon.php?id='.$fila['id_pokemon'].'>Ver</a></button></td>';
-                    echo '<td><button type="button" class="btn btn-warning"><a style="text-decoration: none;color: inherit;" href=detallePokemon.php?id='.$fila['id_pokemon'].'>Modificar</a></button></td>';
-                    echo '<td><button type="button" class="btn btn-danger"><a style="text-decoration: none;color: inherit;" href=detallePokemon.php?id='.$fila['id_pokemon'].'>Borrar</a></button></td>';
+                    echo '<td style="text-align: center;vertical-align: middle;"><img style="width: 30px;height: 30px;" src="' . $fila['ruta_tipo'] .'" width="80"></td>';
+                    echo '<td style="text-align: center;vertical-align: middle;"><img src="' . $fila['image'] .'" width="80"></td>';
+                    echo '<td style="text-align: center;vertical-align: middle;"><button type="button" class="btn btn-primary"><a style="text-decoration: none;color: inherit;" href=detallePokemon.php?id='.$fila['id_pokemon'].'>Ver <i class="fa-solid fa-eye"></i></a></button></td>';
+                    echo '<td style="text-align: center;vertical-align: middle;"><button type="button" class="btn btn-warning"><a style="text-decoration: none;color: inherit;" href=modificarPokemon.php?id='.$fila['id_pokemon'].'>Modificar <i class="fa-regular fa-pen-to-square"></i></a></button></td>';
+                    echo '<td style="text-align: center;vertical-align: middle;"><button type="button" class="btn btn-danger"><a style="text-decoration: none;color: inherit;" href=borrarPokemon.php?id='.$fila['id_pokemon'].'>Borrar <i class="fa-solid fa-trash"></i></a></button></td>';
                     echo '</tr>';
                 } else {
                     echo '<tr>';
@@ -47,8 +46,7 @@
                     echo '<td>' . $fila['nombre'] . '</td>';
                     echo '<td>' . $fila['tipo'] . '</td>';
                     echo '<td><img src="' . $fila['image'] .'" width="80"></td>';
-//                echo '<td>'.$fila['descripcion'].'</td>';
-                    echo '<td><a href=detallePokemon.php?id='.$fila['id_pokemon'].'>Ver</a></td>';
+                    echo '<td style="text-align: center;vertical-align: middle;"><button type="button" class="btn btn-primary"><a style="text-decoration: none;color: inherit;" href=detallePokemon.php?id='.$fila['id_pokemon'].'>Ver <i class="fa-solid fa-eye"></i></a></button></td>';
                     echo '</tr>';
                 }
 

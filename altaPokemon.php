@@ -6,11 +6,15 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Pokedex</title>
+    <title>Pokédex</title>
 </head>
 <body>
 <?php
 include_once ('header.php');
+if(!isset($_SESSION["admin"])){
+    header("Location:index.php");
+    exit();
+}
 ?>
     <h1 class="text-center mt-5 mb-4">Agregue Pokémon</h1>
     <div class="container">
@@ -44,7 +48,7 @@ include_once ('header.php');
             </div>
 
             <div class="col-12">
-                <label class="form-label" for="descripcion">Escriba una descripcion:</label>
+                <label class="form-label" for="descripcion">Escriba una descripción:</label>
                 <textarea class="form-control" name="descripcion" required id="descripcion" placeholder="Descripción..."></textarea>
             </div>
 

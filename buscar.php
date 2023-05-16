@@ -3,7 +3,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Listado Completo</title>
+    <script src="https://kit.fontawesome.com/90ab493dae.js" crossorigin="anonymous"></script>
+    <title>Pokédex</title>
 </head>
 
 
@@ -35,7 +36,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         echo '<td>' . $fila['tipo'] . '</td>';
         echo '<td><img src="' . $fila['image'] . '" width="80"></td>';
         echo '<td>'.$fila['descripcion'].'</td>';
-        echo '<td>'.'<a href="href="detallepokemon.php?nombre=Charmander&id=01&tipo=fuego&imagen=imgs/Charmander.png"">'."Ver Detalles".'</a>'.'</td>';
+        echo '<td style="text-align: center;vertical-align: middle;"><button type="button" class="btn btn-primary"><a style="text-decoration: none;color: inherit;" href=detallePokemon.php?id='.$fila['id_pokemon'].'>Ver<i class="fa-solid fa-eye"></i></a></button></td>';
         echo '</tr>';
     }
         echo '</table>';
